@@ -19,7 +19,7 @@ let canvas = c1.context;
 
 // $("body").append(tela);
 $("body").append(c3.canvas);
-writeText(c2.canvas, c2.context, "Dr.\nFarzan\nMoodi");
+writeText(c2.canvas, c2.context, "D r.\n\nF a r z a n\n\nM o o d i");
 
 class Particle {
   constructor(canvas, options) {
