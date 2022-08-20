@@ -86,7 +86,7 @@ background: radial-gradient(circle, rgba(13,0,40,1) 0%, rgba(255,255,255,0) 100%
     animation-duration: 2.5s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-     animation-fill-mode: forwards;
+    animation-fill-mode: both;
 }
 #email {
   font-size: 90%;
@@ -113,7 +113,7 @@ background: radial-gradient(circle, rgba(13,0,40,1) 0%, rgba(255,255,255,0) 100%
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
   
 }
 
