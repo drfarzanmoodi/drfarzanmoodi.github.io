@@ -1,5 +1,3 @@
-
-
 let particles = [];
 let frequency = 20;
 // Popolate particles
@@ -10,16 +8,17 @@ function () {
 frequency);
 
 
-let c1 = createCanvas({ width: $(window).width(), height: $(window).height() });
-let c2 = createCanvas({ width: $(window).width(), height: $(window).height() });
-let c3 = createCanvas({ width: $(window).width(), height: $(window).height() });
+let c1 = createCanvas({ width: $(".card").width(), height: $(".card").height() });
+let c2 = createCanvas({ width: $(".card").width(), height: $(".card").height() });
+let c3 = createCanvas({ width: $(".card").width(), height: $(".card").height() });
 
 let tela = c1.canvas;
 let canvas = c1.context;
 
 // $("body").append(tela);
-$("body").append(c3.canvas);
-writeText(c2.canvas, c2.context, "D r.\n\nF a r z a n\n\nM o o d i");
+$("div.drmoodi").append(c3.canvas);
+writeText(c2.canvas, c2.context, "Dr.\nFarzan\nMoodi");
+
 
 class Particle {
   constructor(canvas, options) {
@@ -72,10 +71,10 @@ class Particle {
 
 
 function createCanvas(properties) {
-  let canvas = document.createElement("canvas");
+  let canvas = document.createElement('canvas');
   canvas.width = properties.width;
   canvas.height = properties.height;
-  let context = canvas.getContext("2d");
+  let context = canvas.getContext('2d');
   return {
     canvas: canvas,
     context: context };
@@ -83,24 +82,20 @@ function createCanvas(properties) {
 }
 
 function writeText(canvas, context, text) {
-  let size = 100;
+  let size = 65;
   context.font = size + "px Montserrat";
   context.fillStyle = "#111111";
   context.textAlign = "center";
   let lineheight = 70;
-  let lines = text.split("\n");
+  let lines = text.split('\n');
   for (let i = 0; i < lines.length; i++) {
-    context.fillText(
-    lines[i],
-    canvas.width / 2,
-    canvas.height / 2 + lineheight * i - lineheight * (lines.length - 1) / 3);
-
+    context.fillText(lines[i], canvas.width / 2, canvas.height / 2 + lineheight * i - lineheight * (lines.length - 1) / 3);
   }
 }
 
 function maskCanvas() {
   c3.context.drawImage(c2.canvas, 0, 0, c2.canvas.width, c2.canvas.height);
-  c3.context.globalCompositeOperation = "source-atop";
+  c3.context.globalCompositeOperation = 'source-atop';
   c3.context.drawImage(c1.canvas, 0, 0);
   blur(c1.context, c1.canvas, 2);
 }
@@ -108,8 +103,9 @@ function maskCanvas() {
 function blur(ctx, canvas, amt) {
   ctx.filter = `blur(${amt}px)`;
   ctx.drawImage(canvas, 0, 0);
-  ctx.filter = "none";
+  ctx.filter = 'none';
 }
+
 
 /*
  * Function to clear layer canvas
@@ -127,7 +123,7 @@ function popolate() {
 
 function clear() {
   canvas.globalAlpha = 0.03;
-  canvas.fillStyle = "#111111";
+  canvas.fillStyle = '#111111';
   canvas.fillRect(0, 0, tela.width, tela.height);
   canvas.globalAlpha = 1;
 }
