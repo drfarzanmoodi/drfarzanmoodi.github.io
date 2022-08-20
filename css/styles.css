@@ -39,6 +39,7 @@ body {
   font-family: cursive;
 }
 .drmoodi {
+  overflow: hidden;
 
 
 border-radius: 6px;
