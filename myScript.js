@@ -8,9 +8,9 @@ function () {
 frequency);
 
 
-let c1 = createCanvas({ width: $(".card").width(), height: $(".card").height() });
-let c2 = createCanvas({ width: $(".card").width(), height: $(".card").height() });
-let c3 = createCanvas({ width: $(".card").width(), height: $(".card").height() });
+let c1 = createCanvas({ width: $(".frontcard").width(), height: $(".frontcard").height() });
+let c2 = createCanvas({ width: $(".frontcard").width(), height: $(".frontcard").height() });
+let c3 = createCanvas({ width: $(".frontcard").width(), height: $(".frontcard").height() });
 
 let tela = c1.canvas;
 let canvas = c1.context;
@@ -138,3 +138,64 @@ function update() {
 }
 
 update();
+
+gsap
+  .timeline()
+  .set(".numTxt", { x: 22, y: 375 })
+  .set(".nameTxt", { x: 22, y: 410 })
+  .add(centerMain(), 0.2)
+  .from(
+    ".ball",
+    {
+      duration: 2,
+      transformOrigin: "50% 50%",
+      scale: 0,
+      opacity: 0,
+      ease: "elastic",
+      stagger: 0.2
+    },
+    0
+  )
+  .fromTo(
+    ".card",
+    {
+      x: 200,
+      y: 40,
+      transformOrigin: "50% 50%",
+      rotation: -4,
+      skewX: 10,
+      skewY: 4,
+      scale: 2,
+      opacity: 0
+    },
+    {
+      duration: 1.3,
+      skewX: 0,
+      skewY: 0,
+      scale: 1,
+      opacity: 1,
+      ease: "power4.inOut"
+    },
+    0.2
+  );
+
+function centerMain() {
+  gsap.set(".main", { x: "50%", xPercent: -70, y: "50%", yPercent: -52 });
+}
+window.onresize = centerMain;
+
+window.onmousemove = (e) => {
+  let winPercent = {
+      x: e.clientX / window.innerWidth,
+      y: e.clientY / window.innerHeight
+    },
+    distFromCenter =
+      1 -
+      Math.abs(((e.clientX - window.innerWidth / 2) / window.innerWidth) * 2);
+
+  gsap
+    .timeline({ defaults: { duration: 0.5, overwrite: "auto" } })
+    .to(".card", { rotation: -7 + 9 * winPercent.x }, 0)
+    .to(".fillLight", { opacity: distFromCenter }, 0)
+    .to(".bg", { x: 100 - 200 * winPercent.x, y: 20 - 40 * winPercent.y }, 0);
+};
