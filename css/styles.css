@@ -19,13 +19,23 @@ body {
   padding-top: 2rem;
   padding-bottom: 2rem;
   box-sizing: border-box;
+  overflow: auto;
+  
+}
+
+.frontcard .backcard {
+  visibility: hidden;
+   width: 70vw;
+  height: 90vw;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 1.6px;
 }
 
 
-.card {
+.frontcard {
   background: #191c29;  
-  width: 400px;
-  height: 600px;
+  width: 70vw;
+  height: 90vh;
   margin: auto auto;
   max-width: calc(100% - 20px);
   max-height: calc(100% - 20px);
@@ -44,17 +54,36 @@ body {
 }
 .drmoodi {
   overflow: hidden;
-
-
+  max-width: calc(100% - 20px);
+  max-height: calc(100% - 20px);
+  padding: 10px;
+  padding: 3px;
+  position: relative;
+  border-radius: 0px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
 border-radius: 6px;
+background: radial-gradient(circle, rgba(1,11,81,1) 0%, rgba(255,255,255,0) 100%);
 
-background: radial-gradient(circle, rgba(13,0,40,1) 0%, rgba(255,255,255,0) 100%);
   position: absolute;
+   width: 70vw;
+  height: 90vh;
 }
 
-.card:hover {
+.frontcard:hover {
   color: rgb(88 199 250 / 100%);
   transition: color 1s;
+  visibility: hidden;
+}
+.frontcard:hover .backcard {
+   position: absolute;
+   visibility: visible;
+     min-height: 100vh; /* minimum height = screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .drmoodi:hover {
   color: rgb(88 199 250 / 100%);
@@ -64,13 +93,13 @@ background: radial-gradient(circle, rgba(13,0,40,1) 0%, rgba(255,255,255,0) 100%
 .canvas {
   background-color: #808080;
 }
-.card:hover:before, .card:hover:after {
+.frontcard:hover:before, .frontcard:hover:after {
   animation: none;
   opacity: 0;
 }
 
 
-.card::before {
+.frontcard::before {
   content: "";
   width: 104%;
   height: 102%;
@@ -82,22 +111,17 @@ background: radial-gradient(circle, rgba(13,0,40,1) 0%, rgba(255,255,255,0) 100%
     z-index: -1;
     top: -1%;
     left: -2%;
-    animation-name: spin;
-    animation-duration: 2.5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
-    -webkit-animation-name: webkitspin;
-    -webkit-animation-duration: 2.5s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-fill-mode: forwards;
+  -webkit-animation-name: webkitspin;
+  -webkit-animation-duration: 2.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-fill-mode: forwards;
 }
 #email {
   font-size: 90%;
 }
 
-.card::after {
+.frontcard::after {
   position: absolute;
   content: "";
   top: calc(var(--card-height) / 6);
@@ -114,11 +138,6 @@ background: radial-gradient(circle, rgba(13,0,40,1) 0%, rgba(255,255,255,0) 100%
     , #5ddcff, #3c67e3 43%, #4e00c2);
     opacity: 1;
   transition: opacity .5s;
-  animation-name: spin;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-fill-mode: both;
   -webkit-animation-name: webkitspin;
   -webkit-animation-duration: 2.5s;
   -webkit-animation-iteration-count: infinite;
@@ -127,14 +146,7 @@ background: radial-gradient(circle, rgba(13,0,40,1) 0%, rgba(255,255,255,0) 100%
   
 }
 
-@keyframes spin {
-  0% {
-    --rotate: 0deg;
-  }
-  100% {
-    --rotate: 360deg;
-  }
-}
+
 @-webkit-keyframes webkitspin {
   0% {
     --rotate: 0deg;
@@ -144,6 +156,16 @@ background: radial-gradient(circle, rgba(13,0,40,1) 0%, rgba(255,255,255,0) 100%
   }
  }
 
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+
 a {
   color: #212534;
   text-decoration: none;
@@ -151,3 +173,10 @@ a {
   font-weight: bold;
   margin-top: 2rem;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+
+
+
+
