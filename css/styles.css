@@ -87,6 +87,11 @@ background: radial-gradient(circle, rgba(13,0,40,1) 0%, rgba(255,255,255,0) 100%
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-fill-mode: both;
+    -webkit-animation-name: webkitspin;
+    -webkit-animation-duration: 2.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode: forwards;
 }
 #email {
   font-size: 90%;
@@ -114,6 +119,11 @@ background: radial-gradient(circle, rgba(13,0,40,1) 0%, rgba(255,255,255,0) 100%
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-fill-mode: both;
+  -webkit-animation-name: webkitspin;
+  -webkit-animation-duration: 2.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-fill-mode: forwards;
   
 }
 
@@ -125,6 +135,14 @@ background: radial-gradient(circle, rgba(13,0,40,1) 0%, rgba(255,255,255,0) 100%
     --rotate: 360deg;
   }
 }
+@-webkit-keyframes webkitspin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+ }
 
 a {
   color: #212534;
