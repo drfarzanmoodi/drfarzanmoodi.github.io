@@ -80,7 +80,7 @@ background: radial-gradient(circle, rgba(13,0,40,1) 0%, rgba(255,255,255,0) 100%
     animation: spin 2.5s linear infinite;
 }
 #email {
-  font-size: 15px;
+  font-size: 70%;
 }
 
 .card::after {
