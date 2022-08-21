@@ -10,7 +10,7 @@
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
-.parentdiv {
+.frontcard {
   position: relative;
   height: 80vh;
   width: 50vh;
@@ -79,22 +79,16 @@ body {
 }
 .drmoodi {
   overflow: hidden;
-  max-width: calc(100% - 20px);
-  max-height: calc(100% - 20px);
-  padding: 10px;
-  padding: 3px;
-  position: relative;
-  border-radius: 0px;
+
+
+border-radius: 6px;
+
+background: radial-gradient(circle, rgba(5,5,45,1) 0%, rgba(255,255,255,0) 100%);
+  position: absolute;
   justify-content: center;
   align-items: center;
   text-align: center;
-  display: flex;
-border-radius: 6px;
 background: radial-gradient(circle, rgba(1,11,51,1) 0%, rgba(255,255,255,0) 100%);
-
-  position: absolute;
-   width: 70vw;
-  height: 90vh;
 }
 
 .frontcard:hover {
