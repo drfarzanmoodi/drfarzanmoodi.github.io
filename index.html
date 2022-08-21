@@ -23,10 +23,11 @@
 	<script language="JavaScript" type="text/javascript" src="myScript.js"></script>
 	 </div>
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
- <div class="backcard">
-	 
-	 <svg width="100%" height="100%">  
-  <defs width="100%" height="100%">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+
+<div class="parentdiv"><svg class=backcard width="100%" height="100%">  
+
+  <defs>
 
     
     <pattern id="cardBg" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
@@ -35,12 +36,12 @@
     </pattern>
       
     <mask id="m">
-      <rect class="card" fill="#fff" width="340" height="540" rx="30" ry="30" />
+      <rect class="card" fill="#fff" width=80% height=80% rx="30" ry="30" />
     </mask>
     
   </defs>
   
-  <rect fill="url(#grad1)" width="100%" height="100%" />
+  <rect fill="url(#grad1)" width=80% height=80% />
   
   <g class="main">
     <circle class="ball bg" fill="url(#grad2)" cx="120" cy="130" r="130"/>
@@ -49,14 +50,19 @@
       <image class="bg" x="33" y="7" width="700" height="600" xlink:href="https://assets.codepen.io/721952/bgBlur.jpg" />
     </g>
     <g class="card">
-      <rect fill="none" stroke="#ccc"  stroke-width="3" width="341" height="541" rx="31" ry="31" opacity="0.8" />
-      <rect fill="url(#cardBg)" width="340" height="540" rx="30" ry="30" opacity="0.8" />
-      <text class="numTxt" fill="#f0f0f0" font-size="80%">dr.farzanmoodi@gmail.com</text>
-      <text class="nameTxt" fill="#e4e4f4" font-size="40%">Dr. Farzan Moodi</text>      
+      <rect fill="none" stroke="#ccc" opacity="0.75" stroke-width="3" width=80% height=80% rx="31" ry="31" />
+      <rect fill="url(#cardBg)" width=80% height=80% rx="30" ry="30" opacity="0.8" />
+      <text class="numTxt" fill="#f0f0f0" font-size="18">4678 9743 6489 9721</text>
+      <text class="nameTxt" fill="#e4e4f4" font-size="15">PHILIP GOODWIN</text>      
       
     </g>
   </g>
-</svg> </div>
+</svg>
+
+</div>
+
+
+
 
 
 </div>
