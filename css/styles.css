@@ -34,8 +34,8 @@ body {
 
 .frontcard {
   background: #191c29;  
-  width: 70vw;
-  height: 90vh;
+  width: --card-width;
+  height:  --card-height;
   margin: auto auto;
   max-width: calc(100% - 20px);
   max-height: calc(100% - 20px);
@@ -65,7 +65,7 @@ body {
   text-align: center;
   display: flex;
 border-radius: 6px;
-background: radial-gradient(circle, rgba(1,11,81,1) 0%, rgba(255,255,255,0) 100%);
+background: radial-gradient(circle, rgba(1,11,51,1) 0%, rgba(255,255,255,0) 100%);
 
   position: absolute;
    width: 70vw;
