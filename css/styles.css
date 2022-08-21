@@ -9,6 +9,37 @@
   --card-width: calc(var(--card-height) / 1.5);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+.parentdiv {
+  position: relative;
+  height: 80vh;
+  width: 50vh;
+  margin: auto auto;
+  align-content: center;
+  border: solid;
+  border-color: "black";
+
+  }
+
+.frontcard .backcard {
+  visibility: hidden;
+  height: 80vh;
+  width: 50vh;
+  margin: auto auto;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 1.6px;
+  
+}
+.frontcard:hover .backcard {
+  position: absolute;
+  visibility: visible;
+  height: 80vh;
+  width: 50vh; /* minimum height = screen height */
+  margin: auto auto;
+  display: flex;
+
+}
+
 
 body {
   min-height: 100vh;
@@ -23,13 +54,7 @@ body {
   
 }
 
-.frontcard .backcard {
-  visibility: hidden;
-   width: 70vw;
-  height: 90vw;
-  font-family: 'Space Mono', monospace;
-  letter-spacing: 1.6px;
-}
+
 
 
 .frontcard {
@@ -77,14 +102,7 @@ background: radial-gradient(circle, rgba(1,11,51,1) 0%, rgba(255,255,255,0) 100%
   transition: color 1s;
   visibility: hidden;
 }
-.frontcard:hover .backcard {
-   position: absolute;
-   visibility: visible;
-     min-height: 100vh; /* minimum height = screen height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .drmoodi:hover {
   color: rgb(88 199 250 / 100%);
   transition: color 1s;
