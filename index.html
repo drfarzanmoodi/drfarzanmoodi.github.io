@@ -25,44 +25,15 @@
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
 
-<svg class=backcard width="100%" height="100%">  
 
-  <defs>
-
+.wrap
+  .card-shadow
+  .card
+    .card-front      
+      .card-title 3D perspective title
+      .card-subtitle 3D perspective subtitle
+      .card-shine
     
-    <pattern id="cardBg" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-      <image opacity="0.5" width="100" height="100" xlink:href="https://assets.codepen.io/721952/whiteNoise2.png" />
-      <image class="fillLight" opacity="0.5" width="100" height="100" xlink:href="https://assets.codepen.io/721952/whiteNoise.png" />
-    </pattern>
-      
-    <mask id="m">
-      <rect class="card" fill="#fff" width=80% height=80% rx="30" ry="30" />
-    </mask>
-    
-  </defs>
-  
-  <rect fill="url(#grad1)" width=80% height=80% />
-  
-  <g class="main">
-    <circle class="ball bg" fill="url(#grad2)" cx="120" cy="130" r="130"/>
-    <circle class="ball bg" fill="url(#grad3)" cx="550" cy="410" r="210"/>
-    <g class="blur" mask="url(#m)">
-      <image class="bg" x="33" y="7" width="700" height="600" xlink:href="https://assets.codepen.io/721952/bgBlur.jpg" />
-    </g>
-    <g class="card">
-      <rect fill="none" stroke="#ccc" opacity="0.75" stroke-width="3" width=80% height=80% rx="31" ry="31" />
-      <rect fill="url(#cardBg)" width=80% height=80% rx="30" ry="30" opacity="0.8" />
-      <text class="numTxt" fill="#f0f0f0" font-size="18">4678 9743 6489 9721</text>
-      <text class="nameTxt" fill="#e4e4f4" font-size="15">PHILIP GOODWIN</text>      
-      
-    </g>
-  </g>
-</svg>
-
-
-
-
-
 
 
 </div>
