@@ -1,212 +1,496 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
 
   <meta charset="UTF-8">
-  
-<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
-<meta name="apple-mobile-web-app-title" content="CodePen">
 
-<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+  <link rel="apple-touch-icon" type="image/png"
+        href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png"/>
+  <meta name="apple-mobile-web-app-title" content="CodePen">
 
-<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+  <link rel="shortcut icon" type="image/x-icon"
+        href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"/>
+
+  <link rel="mask-icon" type="image/x-icon"
+        href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+        color="#111"/>
 
 
   <title>CodePen - 3D perspective card XY</title>
-  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
-  
-  
-<style>
-@import url(https://fonts.googleapis.com/css?family=Roboto);
-html, body {
-  font-family: "Roboto", sans-serif;
-  height: 100%;
+
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+    html, body {
+      font-family: "Roboto", sans-serif;
+      height: 100%;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #ddd 0%, #f0f0f0 40%);
+      transform-style: preserve-3d;
+      transform: perspective(800px);
+      background-image: url(data:image/png;base64,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);
+    }
+
+    .wrap {
+      position: absolute;
+      perspective: 600px;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .card {
+      background: #fff url('https://mobimg.b-cdn.net/v3/fetch/2a/2a761b2e8bcf8095a3e448628a49661a.jpeg') 50% 50%;
+      background-size: 150%;
+    }
+
+    .card-shadow, .card {
+      margin: 0 auto;
+      margin-top: 100px;
+      width: 300px;
+      height: 450px;
+      z-index: 1;
+      position: absolute;
+      border-radius: 10px;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+    }
+
+    @property --rotate {
+      syntax: "<angle>";
+      initial-value: 132deg;
+      inherits: false;
+    }
+
+    :root {
+      --card-height: 65vh;
+      --card-width: calc(var(--card-height) / 1.5);
+    }
+
+
+    body {
+      min-height: 100vh;
+      background: #212534;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      box-sizing: border-box;
+    }
+
+
+    @keyframes spin {
+      0% {
+        --rotate: 0deg;
+      }
+      100% {
+        --rotate: 360deg;
+      }
+    }
+
+
+    .card-shine {
+      position: absolute;
+      margin: 0 auto;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      z-index: 1;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
+
+    }
+
+    .card-shadow {
+      top: 10px;
+      transform-style: preserve-3d;
+      transform: translateZ(40px);
+      z-index: -1;
+      background: #B3B3B3;
+      transform: scale(0.5, 0.5);
+      box-shadow: 0 0 30px 10px #aaa;
+      position: absolute;
+      content: "";
+      transform: scale(0.8);
+      filter: blur(calc(var(--card-height) / 6));
+      background-image: linear-gradient(
+        var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+      opacity: 60%;
+      transition: opacity .5s;
+      animation: spin 2.5s linear infinite;
+    }
+
+    .card-front, .card-title, .card-subtitle {
+      position: absolute;
+
+
+      color: #FFF;
+      transform-style: preserve-3d;
+    }
+
+    .card-front {
+      border-radius: 10px;
+      position: absolute;
+
+
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+      font-weight: 700;
+      text-align: center;
+      justify-content: center;
+      left: 30px;
+      bottom: 170px;
+      font-size: 30px;
+      line-height: 30px;
+      text-shadow: 0 5px 8px rgba(0, 0, 0, 0.65);
+      transform: translateZ(0px);
+      overflow: hidden;
+      margin: 0;
+      width: 80%;
+    }
+
+    .card-subtitle {
+      font-weight: normal;
+      text-align: left;
+      left: 30px;
+      width: 80%;
+      bottom: 80px;
+      font-size: 25px;
+      line-height: 20px;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+      transform: translateZ(0px);
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+    }
+
+    /* Some basic CSS overrides */
+    body {
+      line-height: 1.5;
+      min-height: 100vh;
+      font-family: "Be Vietnam Pro", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #060606;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+
+
+    .profile-image {
+      border-radius: 50%;
+
+      align-items: center;
+      transform-style: preserve-3d;
+      z-index: 1;
+      flex-direction: row;
+      overflow: hidden;
+      width: 175px;
+      height: 175px;
+      top: 5%;
+      left: 20%;
+      position: relative;
+    }
+
+    .profile-image img {
+      position: absolute;
+      transform-style: preserve-3d;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+
+
+    .profile-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-actions > * {
+      margin: 0 0.25rem;
+    }
+
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-body {
-  background: linear-gradient(to bottom, #ddd 0%, #f0f0f0 40%);
-  transform-style: preserve-3d;
-  transform: perspective(800px);
-  background-image: url(data:image/png;base64,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);
-}
-
-.wrap {
-  position: absolute;
-  perspective: 600px;
-  height: 100%;
+.container {
   width: 100%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 120px;
+  background: #27282c;
 }
 
-.card-shadow, .card {
-  margin: 0 auto;
-  margin-top: 100px;
-  width: 300px;
-  height: 450px;
-  z-index: 1;
-  position: absolute;
-  border-radius: 10px;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-}
-
-.card {
-  background: #fff url("https://images.unsplash.com/photo-1441716844725-09cedc13a4e7?fit=crop&fm=jpg&h=950&q=80&w=1925") 50% 50%;
-  background-size: 450%;
-}
-
-.card-shine {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  z-index: 1;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
-  z-index: -1;
-}
-
-.card-shadow {
-  top: 10px;
+.button {
+  position: relative;
   transform-style: preserve-3d;
   transform: translateZ(40px);
-  z-index: -1;
-  background: #B3B3B3;
-  transform: scale(0.5, 0.5);
-  box-shadow: 0 0 30px 10px #aaa;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  color: var(--color);
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  text-shadow: 0 0 15px var(--color);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  transition: 0.5s;
+  z-index: 1;
 }
 
-.card-front, .card-title, .card-subtitle {
+.button:hover {
+  color: #fff;
+  border: 2px solid rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0px var(--color);
+}
+
+.button::before {
+  content: '';
   position: absolute;
-  color: #FFF;
-  transform-style: preserve-3d;
-}
-
-.card-front {
-  border-radius: 10px;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  background: var(--color);
+  z-index: -1;
+  transform: scale(0);
+  transition: 0.5s;
 }
 
-.card-title {
-  font-weight: 700;
-  text-align: left;
-  left: 30px;
-  bottom: 140px;
-  font-size: 35px;
-  line-height: 30px;
-  text-shadow: 0 5px 8px rgba(0, 0, 0, 0.65);
-  transform: translateZ(0px);
-  overflow: hidden;
-  margin: 0;
-  width: 80%;
+.button:hover::before {
+  transform: scale(1);
+  transition-delay: 0.5s;
+  box-shadow: 0 0 10px var(--color),
+    0 0 30px var(--color),
+    0 0 60px var(--color);
 }
 
-.card-subtitle {
-  font-weight: normal;
-  text-align: left;
-  left: 30px;
-  width: 80%;
-  bottom: 80px;
-  font-size: 25px;
-  line-height: 20px;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
-  transform: translateZ(0px);
+.button span {
+  position: absolute;
+  background: var(--color);
+  pointer-events: none;
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--color),
+    0 0 20px var(--color),
+    0 0 30px var(--color),
+    0 0 50px var(--color),
+    0 0 100px var(--color);
+  transition: 0.5s ease-in-out;
+  transition-delay: 0.25s;
 }
-</style>
+
+.button:hover span {
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+.button span:nth-child(1),
+.button span:nth-child(3) {
+  width: 20px;
+  height: 4px;
+}
+
+.button:hover span:nth-child(1),
+.button:hover span:nth-child(3) {
+  transform: translateX(0);
+}
+
+.button span:nth-child(2),
+.button span:nth-child(4) {
+  width: 4px;
+  height: 20px;
+}
+
+.button:hover span:nth-child(1),
+.button:hover span:nth-child(3) {
+  transform: translateY(0);
+}
+
+.button span:nth-child(1) {
+  top: calc(50% - 2px);
+  left: -30px;
+  transform-origin: left;
+}
+
+.button:hover span:nth-child(1) {
+  left: 50%;
+}
+
+.button span:nth-child(3) {
+  top: calc(50% - 2px);
+  right: -30px;
+  transform-origin: right;
+}
+
+.button:hover span:nth-child(3) {
+  right: 50%;
+}
+
+.button span:nth-child(2) {
+  left: calc(50% - 2px);
+  top: -30px;
+  transform-origin: top;
+}
+
+.button:hover span:nth-child(2) {
+  top: 50%;
+}
+
+.button span:nth-child(4) {
+  left: calc(50% - 2px);
+  bottom: -30px;
+  transform-origin: bottom;
+}
+
+.button:hover span:nth-child(4 ) {
+  bottom: 50%;
+}
+
+
+  </style>
 
   <script>
-  window.console = window.console || function(t) {};
-</script>
+    window.console = window.console || function (t) {
+    };
+  </script>
 
-  
-  
+
   <script>
-  if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
-  }
-</script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+  </script>
 
 
 </head>
 
-<body translate="no" >
-  <div class='wrap'>
+<body translate="no">
+<div class='wrap'>
   <div class='card-shadow'></div>
-  <div class='card'>
+  <article class="card">
     <div class='card-front'>
-      <div class='card-title'>3D perspective title</div>
-      <div class='card-subtitle'>3D perspective subtitle</div>
+      <div class="profile-image">
+        <img
+          src="https://media-exp1.licdn.com/dms/image/C4D03AQHpxXvKYmGdfw/profile-displayphoto-shrink_800_800/0/1643698123265?e=2147483647&v=beta&t=x4b7CWqXE9UxOox-W2O5AY-5wXauKbl_F9h7uvO5yeo"/>
+      </div>
+
+
+      <div class='card-title'>Dr Farzan Moodi</div>
+      <div class='profile-actions card-subtitle'>
+          <a class="button" href="mailto: drfarzanmoodi@gmail.com" style="--color:#1e9bff;">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    Contact Me!
+  </a>
+      </div>
       <div class='card-shine'></div>
     </div>
-  </div>
+  </article>
 </div>
-    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+<script
+  src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
 
-  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-      <script id="rendered-js" >
-var
-$card = $('.card'),
-$cardTitle = $('.card-title'),
-$cardSubtitle = $('.card-subtitle'),
-$cardShine = $('.card-shine'),
-$cardShadow = $('.card-shadow'),
-currentMousePos = { x: 0, y: 0 },
-mouseFromCenter = { x: 0, y: 0 };
-
-$(document).mousemove(function (event) {
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script id="rendered-js">
   var
-  wHeight = $(window).height(),
-  wWidth = $(window).width();
+    $card = $('.card'),
+    $cardTitle = $('.card-title'),
+    $cardSubtitle = $('.card-subtitle'),
+    $cardShine = $('.card-shine'),
+    $cardShadow = $('.card-shadow'),
+    currentMousePos = {x: 0, y: 0},
+    mouseFromCenter = {x: 0, y: 0};
 
-  currentMousePos.x = event.pageX;
-  currentMousePos.y = event.pageY;
-  mouseFromCenter.x = currentMousePos.x - wWidth / 2;
-  mouseFromCenter.y = currentMousePos.y - wHeight / 2;
+  $(document).mousemove(function (event) {
+    var
+      wHeight = $(window).height(),
+      wWidth = $(window).width();
 
-  var
-  around1 = -1 * (currentMousePos.y * 100 / wHeight * 0.2 - 10) + 'deg',
-  around2 = 1 * (currentMousePos.x * 100 / wWidth * 0.2 - 10) + 'deg',
-  trans1 = currentMousePos.x * 100 / wHeight * 0.3 + 'px',
-  trans2 = currentMousePos.y * 100 / wHeight * 0.3 + 'px',
-  dy = event.pageY - wHeight / 2, //@h/2 = center of poster
-  dx = event.pageX - wWidth / 2, //@w/2 = center of poster
-  theta = Math.atan2(dy, dx), // angle between cursor and center of poster in RAD
-  angle = theta * 180 / Math.PI - 90,
-  mousePositionX = currentMousePos.x / wWidth * 100,
-  mousePositionY = 50 + currentMousePos.y / wHeight * 10;
+    currentMousePos.x = event.pageX;
+    currentMousePos.y = event.pageY;
+    mouseFromCenter.x = currentMousePos.x - wWidth / 2;
+    mouseFromCenter.y = currentMousePos.y - wHeight / 2;
 
-  // gradient angle and opacity for card shine effect
-  $cardShine.css('background', 'linear-gradient(' + angle + 'deg, rgba(255,255,255,' + currentMousePos.y / wHeight * .7 + ') 0%,rgba(255,255,255, 0) 80%)');
-  // card pos and angle
-  $card.css({
-    "-webkit-transform": "translate3d(" + trans1 + ", " + trans2 + ", 0) scale(1) rotatex(" + around1 + ") rotatey(" + around2 + ")", 'background-position': mousePositionX + '%' + ' ' + currentMousePos.y / wHeight * 50 + '%' });
+    var
+      around1 = -1 * (currentMousePos.y * 100 / wHeight * 0.2 - 10) + 'deg',
+      around2 = 1 * (currentMousePos.x * 100 / wWidth * 0.2 - 10) + 'deg',
+      trans1 = currentMousePos.x * 100 / wHeight * 0.3 + 'px',
+      trans2 = currentMousePos.y * 100 / wHeight * 0.3 + 'px',
+      dy = event.pageY - wHeight / 2, //@h/2 = center of poster
+      dx = event.pageX - wWidth / 2, //@w/2 = center of poster
+      theta = Math.atan2(dy, dx), // angle between cursor and center of poster in RAD
+      angle = theta * 180 / Math.PI - 90,
+      mousePositionX = currentMousePos.x / wWidth * 100,
+      mousePositionY = 50 + currentMousePos.y / wHeight * 10;
 
-  // card shadow pos and angle
-  $cardShadow.css({ "transform": "scale(.9,.9) translateX(" + (mouseFromCenter.x * -0.02 + 12) + "px) translateY(" + (mouseFromCenter.y * -0.02 + 12) + "px) scale(1.0) rotateY(" + mouseFromCenter.x / 25 * 0.5 + "deg) rotateX(" + mouseFromCenter.y / -25 + "deg)" });
+    // gradient angle and opacity for card shine effect
+    $cardShine.css('background', 'linear-gradient(' + angle + 'deg, rgba(255,255,255,' + currentMousePos.y / wHeight * .7 + ') 0%,rgba(255,255,255, 0) 80%)');
+    // card pos and angle
+    $card.css({
+      "-webkit-transform": "translate3d(" + trans1 + ", " + trans2 + ", 0) scale(1) rotatex(" + around1 + ") rotatey(" + around2 + ")",
+      'background-position': mousePositionX + '%' + ' ' + currentMousePos.y / wHeight * 50 + '%'
+    });
 
-  $cardTitle.css({ "transform": "translateX(" + mouseFromCenter.x / 25 * 0.7 + "px) translateY(" + mouseFromCenter.y / 25 * 1.65 + "px)" });
+    // card shadow pos and angle
+    $cardShadow.css({"transform": "scale(.9,.9) translateX(" + (mouseFromCenter.x * -0.02 + 12) + "px) translateY(" + (mouseFromCenter.y * -0.02 + 12) + "px) scale(1.0) rotateY(" + mouseFromCenter.x / 25 * 0.5 + "deg) rotateX(" + mouseFromCenter.y / -25 + "deg)"});
+
+    $cardTitle.css({"transform": "translateX(" + mouseFromCenter.x / 25 * 0.7 + "px) translateY(" + mouseFromCenter.y / 25 * 1.65 + "px)"});
 
 
-  $cardSubtitle.css({ "transform": "translateX(" + mouseFromCenter.x / 25 * 0.5 + "px) translateY(" + mouseFromCenter.y / 25 * 1.15 + "px) translateZ(60px)" });
+    $cardSubtitle.css({"transform": "translateX(" + mouseFromCenter.x / 25 * 0.5 + "px) translateY(" + mouseFromCenter.y / 25 * 1.15 + "px) translateZ(60px)"});
 
-});
-//# sourceURL=pen.js
-    </script>
+  });
+  //# sourceURL=pen.js
+</script>
 
-  
 
 </body>
 
