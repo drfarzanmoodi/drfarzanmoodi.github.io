@@ -25,6 +25,7 @@
   <style>
     @import url(https://fonts.googleapis.com/css?family=Roboto);
 
+   
     html, body {
       font-family: "Roboto", sans-serif;
       height: 100%;
@@ -49,28 +50,13 @@
       overflow: hidden;
       text-align: center;
     }
-    
-          .card {
+
+
+ .card {
         background: #fff url('https://github.com/drfarzanmoodi/drfarzanmoodi.github.io/blob/main/card_background2.jpg?raw=true') no-repeat center center fixed;
         background-size: cover;
         background-size: 100%;
-        width: var(--card-width);
-        height: var(--card-height);
-        padding: 3px;
-        position: relative;
-        border-radius: 6px;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        display: flex;
-        font-size: 1.5em;
-        color: rgb(88 199 250 / 0%);
-        cursor: pointer;
-        font-family: cursive;
-        z-index: 2;
-      }
-
-
+    }
 
     .card-shadow, .card {
       margin: 0 auto;
@@ -85,39 +71,6 @@
       left: 0px;
       right: 0px;
     }
-    
-
-
-
-      .card::before {
-        content: "";
-        width: 104%;
-        height: 102%;
-        border-radius: 8px;
-        background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
-        position: absolute;
-        z-index: -1;
-        top: -1%;
-        left: -2%;
-        animation: spin 2.5s linear infinite;
-      }
-
-      @keyframes spin {
-        0% {
-          --rotate: 0deg;
-        }
-        100% {
-          --rotate: 360deg;
-        }
-      }
-
-      a {
-        color: #212534;
-        text-decoration: none;
-        font-family: sans-serif;
-        font-weight: bold;
-        margin-top: 2rem;
-      }
 
     @property --rotate {
       syntax: "<angle>";
