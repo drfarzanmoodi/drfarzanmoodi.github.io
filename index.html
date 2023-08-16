@@ -399,6 +399,35 @@
 .button:hover span:nth-child(4 ) {
   bottom: 50%;
 }
+        @media screen and (max-width: 768px) {
+      /* Adjust sizes, margins, paddings, and fonts for smaller screens */
+      .card {
+        width: 80%; /* Reduce card width */
+        height: auto; /* Allow card height to adjust */
+        margin-top: 20px;
+      }
+
+      .profile-image {
+        width: 100px;
+        height: 100px;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+      }
+
+      .card-subtitle {
+        font-size: 1rem;
+      }
+
+      .profile-actions {
+        flex-direction: column; /* Stack buttons vertically */
+      }
+
+      .button {
+        margin: 10px 0;
+      }
+    }
 
 
   </style>
